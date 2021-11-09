@@ -29,6 +29,11 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: VSTest@2
+  displayName: 'Test Project'
   inputs:
+    testAssemblyVer2: |
+      **\$(BuildConfiguration)\*test*.dll
+      !**\obj\**
+      !**\$(BuildConfiguration)\*SeleniumTest*.dll
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
